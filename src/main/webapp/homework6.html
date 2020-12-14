@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .fab {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            text-align: center;
+        }
+
+        .fab-btn i {
+            color: rgb(30, 144, 255);
+            font-size: 80px;
+            transition: all 0.5s;
+        }
+
+        .fab-menu {
+            display: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .fab-menu li a {
+            display: block;
+            margin: 20px;
+            text-decoration: none;
+            vertical-align: middle;
+        }
+
+        .fab-menu li a i {
+            color: rgb(30, 144, 255);
+            vertical-align: middle;
+            font-size: 50px;
+
+        }
+
+        #d1 {
+            color: red;
+        }
+
+        .fab:hover .fab-btn i {
+            transform: rotate(180deg);
+        }
+    </style>
+
+
+</head>
+<body>
+<div class="container">
+    <div class="fab">
+        <div class="fab-btn">
+            <i class="material-icons" id="b1">account_circle</i>
+        </div>
+        <div class="fab-menu">
+            <ul>
+                <li><a href=""><i class="material-icons">create</i></a></li>
+                <li><a href=""><i class="material-icons">palette</i></a></li>
+                <li><a href=""><i class="material-icons" id="d1">delete_forever</i></a></li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+    $("div.fab").on({
+        mouseenter: function () {
+            $(this).children("div.fab-btn").children("i#b1").text("arrow_drop_down_circle");
+            $(this).children("div.fab-menu").fadeIn(300);
+        },
+        mouseleave: function () {
+            $(this).children("div.fab-btn").children("i#b1").text("account_circle");
+            $(this).children("div.fab-menu").fadeOut(300);
+        }
+    })
+
+
+</script>
+</body>
+</html>

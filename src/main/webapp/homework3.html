@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .sidebar {
+            position: fixed;
+            background-color: rgb(0, 47, 167);
+            border: red 1px solid;
+            width: 90px;
+            height: 100vh;
+        }
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+            transition: transform 1s;
+        }
+
+        .item:hover {
+            transform: translateY(-5px);
+        }
+
+        .material-icons {
+            color: white;
+            font-size: 50px;
+        }
+
+        .content {
+            border: red 1px solid;
+            margin-left: 90px;
+            font-size: 50px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="sidebar">
+        <div class="item">
+            <a href=""><i class="material-icons">access_alarms</i></a>
+        </div>
+        <div class="item">
+            <a href=""><i class="material-icons">ac_unit</i></a>
+        </div>
+        <div class="item">
+            <a href=""><i class="material-icons">account_balance</i></a>
+        </div>
+        <div class="item">
+            <a href=""><i class="material-icons">business</i></a>
+        </div>
+        <div class="item">
+            <a href=""><i class="material-icons">color_lens</i></a>
+        </div>
+        <div class="item">
+            <a href=""><i class="material-icons">favorite</i></a>
+        </div>
+    </div>
+    <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dicta ex laudantium ratione sint.
+            Aperiam dignissimos enim eos ex laudantium maxime neque nobis nulla odio rem soluta totam, unde
+            voluptatem voluptates, voluptatum!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dicta ex laudantium ratione sint.
+            Aperiam dignissimos enim eos ex laudantium maxime neque nobis nulla odio rem soluta totam, unde
+            voluptatem voluptates, voluptatum!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dicta ex laudantium ratione sint.
+            Aperiam dignissimos enim eos ex laudantium maxime neque nobis nulla odio rem soluta totam, unde
+            voluptatem voluptates, voluptatum!</p>
+    </div>
+</div>
+
+</body>
+</html>
