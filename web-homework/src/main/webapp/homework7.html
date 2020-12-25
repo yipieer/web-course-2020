@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index:1;
+    }
+
+    .modal-dialog {
+
+        background-color: white;
+        position: fixed;
+        width: 250px;
+        margin-left: -125px;
+        left: 50%;
+        top: 50px;
+        height: 130px;
+        border-radius: 5px;
+    }
+
+    .modal-content {
+        padding: 10px;
+    }
+
+    .modal-title {
+        padding-left: 7px;
+        padding-top: 0;
+
+    }
+
+    .btn-close:hover {
+        opacity: 0.5;
+    }
+
+    .btn-close {
+        outline-style: none;
+        transition-duration: 1s;
+        border: 1px white solid;
+        background-color: white;
+        position: absolute;
+        right: 7px;
+        top: 7px;
+        font-size: 20px;
+    }
+
+    .modal-body {
+        padding: 5px;
+        border-top: 1px solid silver;
+        border-bottom: 1px solid silver;
+        height: 50px;
+    }
+
+    .modal-footer {
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+    }
+
+    .btn-primary {
+        padding: 5px;
+        outline-style: none;
+        display: inline-block;
+        color: white;
+        border-radius: 5px;
+        background-color: rgb(30, 144, 255);
+        border:  1px rgb(30, 144, 255) solid;
+        height: 30px;
+    }
+    .btn-primary:hover {
+        opacity: 0.8;
+    }
+    .btn-secondary {
+        padding: 3px;
+        display: inline-block;
+        color: white;
+        border: 1px solid gainsboro;
+        background-color: gainsboro;
+        height: 30px;
+        outline-style: none;
+    }
+
+    .btn-secondary:hover {
+        opacity: 0.8;
+    }
+
+    .btn-main {
+        color: black;
+        border:0.5px solid black;
+        background: gainsboro;
+        padding: 3px;
+        display: inline-block;
+        height: 30px;
+        outline-style: none;
+    }
+    .btn-main:hover {
+         opacity: 0.8;
+     }
+</style>
+<body>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dicta ex laudantium ratione sint.
+    Aperiam dignissimos enim eos ex laudantium maxime neque nobis nulla odio rem soluta totam, unde
+    voluptatem voluptates, voluptatum!</p>
+<button type="button" class="btn-main" data-target="modal1">
+    点击激活模态框
+</button>
+<div class="modal" id="modal1">
+    <div class="modal-dialog" role="document" id="modal2">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn btn-close">
+                    &times;
+                </button>
+            </div>
+            <div class="modal-body">
+                This is web homework7.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function (){
+        $(".btn-main").click(function (){
+            let temp = $(this).data("target");
+            $("#"+temp).fadeIn(500);
+            $("#modal2").animate({top:"30px"});
+        })
+        $(".btn-secondary").click(function (){
+            let temp = $(this).data("close");
+            $("#modal1").fadeOut(500);
+            $("#"+temp).animate({top:"50px"});
+        })
+        $("#modal1").click(function (){
+            $(this).fadeOut(500);
+             $("#modal2").animate({top:"50px"});
+        })
+        $("#modal2").click(function (){
+            return false;
+        })
+    })
+
+</script>
+</body>
+</html>
