@@ -10,7 +10,7 @@
     <modules>
         <module>web-experiments</module>
         <module>web-homework</module>
-    </modules>
+        </modules>
 
     <packaging>pom</packaging>
 

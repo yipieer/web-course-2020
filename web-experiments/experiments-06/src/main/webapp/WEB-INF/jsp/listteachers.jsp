@@ -26,9 +26,9 @@
         <tr>
         <td>${s.count}</td>
         <td><a href="updateteacher?tid=${t.id}">${t.name}</a></td>
-        <td><fmt:formatDate
-                pattern="yyyy-MM-dd HH:mm"
-                value="${t.inserDate}"/></td>
+            <td><fmt:formatDate
+                    pattern="yyyy-MM-dd HH:mm"
+                    value="${t.insertDate}"/></td>
         </tr>
     </c:forEach>
 </table>
