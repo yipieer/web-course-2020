@@ -15,7 +15,7 @@
 <h2>Query</h2>
 <h4>全部用户</h4>
 <ul>
-    <c:forEach items="${users }" var="u">
+    <c:forEach items="${users}" var="u">
         <li>${u.name }</li>
     </c:forEach>
 </ul>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form action="/register" method="post">
+    <div>
+        <p>个人信息</p>
+        <label>用户名：<input type="text" required></label>
+        <br>
+        <label>密码：<input type="password" required></label>
+        <br>
+        性别：<label><input type="radio" name="gender">男</label>
+        <label><input type="radio" name="gender">女</label>
+        <br>
+        生日：<input type="date" id="birthday" required>
+        <br>
+        籍贯：
+        <input list="home">
+        <datalist id="home">
+            <option>内蒙古</option>
+            <option>黑龙江</option>
+            <option>上海</option>
+            <option>北京</option>
+        </datalist>
+        <br>
+        学历：
+        <select>
+            <option></option>
+            <option selected>学士</option>
+            <option>硕士</option>
+            <option>博士</option>
+        </select>
+    </div>
+    <div>
+        <p>其他信息组</p>
+        <br>
+        喜欢的课程：
+        <ul>
+            <li><label><input type="checkbox" name="courses" checked>Web开发技术</label></li>
+            <li><label><input type="checkbox" name="courses">Java程序设计</label></li>
+            <li><label><input type="checkbox" name="courses">数据库原理</label></li>
+            <li><label><input type="checkbox" name="courses">系统分析与测试</label></li>
+        </ul>
+        <br>
+        照片：
+        <input type="file" id="photo" accept=".png,.jpg">
+    </div>
+    <button type="submit">提交</button>
+    <button type="reset">重置</button>
+</form>
+</body>
+</html>
