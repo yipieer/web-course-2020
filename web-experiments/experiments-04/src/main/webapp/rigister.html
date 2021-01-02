@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>注册</h1>
+<label>
+    <input type="checkbox" id="legal">我已阅读相关说明并遵守相关法律
+</label>
+<form id="register">
+    <div>
+        用户名：<input type="text" name="username">
+        <br>
+        未来意向：
+        <label><input type="radio" name="future" value="1">Java工程师</label>
+        <label><input type="radio" name="future" value="2">测试工程师</label>
+        <label><input type="radio" name="future" value="3">前端工程师</label>
+        <!--隐藏-->
+        <input type="hidden" name="purpose">
+        <br>
+        <br>
+        请从以下课程中选择2项最喜欢的课程
+        <ul>
+            <li>
+                <label>
+                    <input type="checkbox" name="course">Web开发技术
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" name="course">软件项目管理
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" name="course">数据库原理
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" name="course">系统分析与设计
+                </label>
+            </li>
+        </ul>
+        地址：
+        <ul id="ul-address"></ul>
+        <input name="address">
+        <button type="button" id="button-address">添加地址</button>
+        <br>
+    </div>
+    <button type="submit">提交</button>
+</form>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    <!--全不可用-->
+    $(function () {
+        //禁用
+        let riform = $("#register :input").prop("disabled", true);
+        //课程标准
+        let courseflag = false;
+        //用户名长度标准
+        let flagname = false;
+        $("#legal").click(function () {
+            let dis = $(this).prop("checked");
+            riform.not($("button:submit")).prop("disabled", !dis);
+        });
+
+        //    判断用户名长度
+        //trim去空格 .val值
+        $("input[name=username]").change(function () {
+            if ($(this).val().trim().length < 6) {
+                alert("用户名长度必须大于等于6");
+                flagname = false;
+            } else {
+                flagname = true;
+            }
+        });
+
+        //动态添加地址
+        // $("#button-address").click(() => {
+        //     let input = $("input[name=address]");
+        //     let item = $(`<li>${input.val()}</li>`);
+        //     //``是个啥符号啊
+        //     input.val("");
+        //     item.css("display","none");
+        //     $("#ul-address").append(item)
+        //     item.fadeIn(1000);
+        // })
+        //两种都可
+        $("#button-address").click(function (){
+            let input = $("input[name=address]");
+            let item = $(`<li>${input.val()}</li>`);
+            //``是个啥符号啊
+            input.val("");
+            item.css("display","none");
+            $("#ul-address").append(item)
+            item.fadeIn(1000);
+        });
+        //多选
+        const amount=2;
+        const check=$("input[name=course]");
+        check.click(function (){
+            let checked=check.filter(":checked");
+            let unchecked=check.not(":checked");
+            courseflag=checked.length>=amount;
+            unchecked.prop("disabled",courseflag);
+        });
+        //两个都成立才可提交
+        $("input[name=username],input[name=course]").change(()=>{
+            let dis=flagname&&courseflag;
+            $("button:submit").prop("disabled",!dis);
+        })
+        //点两次取消
+        let rad=$("input[name=future]");
+        let hid=$("input[name=purpose]");
+        rad.click(function (){
+            if($(this).val()===hid.val()){
+                hid.val(0);
+                $(this).prop("checked",false);
+            }else {
+                hid.val($(this).val());
+            }
+        })
+    });
+
+</script>
+</body>
+</html>

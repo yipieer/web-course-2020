@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        aside {
+            width: 300px;
+            background-color: aliceblue;
+        }
+
+        .sidebar > h2 {
+            padding: 15px 20px;
+            color: white;
+            background-color: cornflowerblue;
+        }
+
+        .sidebar > h2:hover {
+            background-color: black;
+            /*小手*/
+            cursor: pointer;
+        }
+
+        .sidebar ul {
+            display: none;
+        }
+
+        .sidebar li a {
+            display: block;
+            text-decoration: none;
+            color: black;
+            padding: 15px 20px;
+        }
+
+        .sidebar li a:hover {
+            background-color: gray;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<aside>
+    <div class="sidebar">
+        <h2>云技术管理</h2>
+        <ul>
+            <li><a href="#">云服务器</a></li>
+            <li><a href="#">云数据库</a></li>
+            <li><a href="#">负载均衡</a></li>
+        </ul>
+    </div>
+    <div class="sidebar">
+        <h2>安全管理</h2>
+        <ul>
+            <li><a href="#">云盾控制台</a></li>
+            <li><a href="#">DDoS高防IP</a></li>
+            <li><a href="#">Web应用防火墙</a></li>
+            <li><a href="#">CA证书服务</a></li>
+        </ul>
+    </div>
+</aside>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        $(".sidebar > h2").click(function () {
+            let ul = $(this).next("ul");
+            ul.slideToggle();
+            $(".sidebar>ul").not(ul).slideUp();
+        })
+    })
+</script>
+</body>
+</html>
