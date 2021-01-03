@@ -48,7 +48,10 @@
             </li>
         </ul>
         地址：
-        <ul id="ul-address"></ul>
+        <ul id="ul-address">
+
+        </ul>
+        <!-- 输入框-->
         <input name="address">
         <button type="button" id="button-address">添加地址</button>
         <br>
@@ -93,37 +96,37 @@
         //     item.fadeIn(1000);
         // })
         //两种都可
-        $("#button-address").click(function (){
+        $("#button-address").click(function () {
             let input = $("input[name=address]");
             let item = $(`<li>${input.val()}</li>`);
             //``是个啥符号啊
             input.val("");
-            item.css("display","none");
+            item.css("display", "none");
             $("#ul-address").append(item)
             item.fadeIn(1000);
         });
         //多选
-        const amount=2;
-        const check=$("input[name=course]");
-        check.click(function (){
-            let checked=check.filter(":checked");
-            let unchecked=check.not(":checked");
-            courseflag=checked.length>=amount;
-            unchecked.prop("disabled",courseflag);
+        const amount = 2;
+        const check = $("input[name=course]");
+        check.click(function () {
+            let checked = check.filter(":checked");
+            let unchecked = check.not(":checked");
+            courseflag = checked.length >= amount;
+            unchecked.prop("disabled", courseflag);
         });
         //两个都成立才可提交
-        $("input[name=username],input[name=course]").change(()=>{
-            let dis=flagname&&courseflag;
-            $("button:submit").prop("disabled",!dis);
+        $("input[name=username],input[name=course]").change(() => {
+            let dis = flagname && courseflag;
+            $("button:submit").prop("disabled", !dis);
         })
         //点两次取消
-        let rad=$("input[name=future]");
-        let hid=$("input[name=purpose]");
-        rad.click(function (){
-            if($(this).val()===hid.val()){
+        let rad = $("input[name=future]");
+        let hid = $("input[name=purpose]");
+        rad.click(function () {
+            if ($(this).val() === hid.val()) {
                 hid.val(0);
-                $(this).prop("checked",false);
-            }else {
+                $(this).prop("checked", false);
+            } else {
                 hid.val($(this).val());
             }
         })

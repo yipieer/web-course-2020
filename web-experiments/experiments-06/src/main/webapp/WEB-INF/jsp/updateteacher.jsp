@@ -23,11 +23,12 @@
             pattern="yyyy-MM-dd HH:mm"
             value="${teacher.insertDate}"/><br>
     职称：<select name="titleid">
-    <c:forEach items="${titles}" var="t">
+    <c:forEach items="${titles }" var="t">
         <c:set var="s" value=""/>
-        <c:if test="${t.id==teacher.title.id}"/>
-
-
+        <c:if test="${t.id==teacher.title.id }">
+            <c:set var="s" value="selected"/>
+        </c:if>
+        <option value="${t.id }" ${s }>${t.name }</option>
     </c:forEach>
 </select>
     授课：
